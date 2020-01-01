@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hebeu.resale.demo1.mapper.CategoryMapper">
+  <resultMap id="BaseResultMap" type="com.hebeu.resale.demo1.domain.Category">
+    <!--@mbg.generated-->
+    <!--@Table category-->
+    <id column="c_id" jdbcType="INTEGER" property="cId" />
+    <result column="c_name" jdbcType="VARCHAR" property="cName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    c_id, c_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from category
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from category
+    where c_id = #{cId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="c_id" keyProperty="cId" parameterType="com.hebeu.resale.demo1.domain.Category" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into category (c_name)
+    values (#{cName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="c_id" keyProperty="cId" parameterType="com.hebeu.resale.demo1.domain.Category" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into category
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cName != null">
+        c_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cName != null">
+        #{cName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hebeu.resale.demo1.domain.Category">
+    <!--@mbg.generated-->
+    update category
+    <set>
+      <if test="cName != null">
+        c_name = #{cName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hebeu.resale.demo1.domain.Category">
+    <!--@mbg.generated-->
+    update category
+    set c_name = #{cName,jdbcType=VARCHAR}
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+  <select id="queryByAll" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List" />
+        from category
+        <where>
+            <if test="cId != null">
+                and c_id=#{cId,jdbcType=INTEGER}
+            </if>
+            <if test="cName != null">
+                and c_name=#{cName,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <select id="queryAll" resultMap="BaseResultMap">
+      select * from category
+    </select>
+</mapper>
