@@ -52,8 +52,8 @@ public class MyUtils {
     static final String domain = "dysmsapi.aliyuncs.com";
 
     // TODO 此处需要替换成开发者自己的AK(在阿里云访问控制台寻找)
-    static final String accessKeyId = "LTAI4Foyudx5wKobqBWUWZZ8";
-    static final String accessKeySecret = "qfd9LKPUjfEu8CYpM4wcS8ibPUU3yB";
+    static final String accessKeyId = "";
+    static final String accessKeySecret = "";
 
     /**
      * + - *
@@ -330,8 +330,9 @@ public class MyUtils {
         UploadManager uploadManager = new UploadManager(cfg);
 //...生成上传凭证，然后准备上传
         String key = filename;
-        String accessKey = "Nx0xrItkiX29wy0yi4OoP_2QrjlQl6yqDG-AJRTK";
-        String secretKey = "KxxxjJE6CsuyuQSgomOFCQilEs6zhCc4HxrY414C";
+        //七牛云开发者自己的AK
+        String accessKey = "";
+        String secretKey = "";
         String bucket = "resaleresource";
 //如果是Windows情况下，格式是 D:\\qiniu\\test.png
         if ("windows".equals(MyUtils.getOperateSysName())){
